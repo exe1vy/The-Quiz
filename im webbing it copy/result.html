@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Results</title>
+<link rel="stylesheet" href="css/home.css">
+</head>
+
+<body class="norm2">
+
+<div class="navBara">
+    <h1>Tyler Hops On
+    <h3><a href="About.html" class="box-link>">About</a><h3>
+        <h3><a href="index.html" class="box-link>">Home</a><h3></h1>
+</div>
+
+<div class="grid-wrapper">
+    <div class="grid-container2">
+
+        <div class="box box-2">
+            <p>Your song is picked based on your personality/feelings mapped on a 2D axis:
+             Sadness or happiness, and lyrical or melodic.</p>
+        </div>
+
+        <div class="box box-1">
+            <h2>Your Result</h2>
+            <h3 id="result"></h3>
+        </div>
+
+        <div class="boxb box-3">
+            <p id="scoreText"></p>
+        </div>
+
+        <div class="boxb box-4">
+            <button class="btn" onclick="restart()">Restart</button>
+            <a href="https://www.instagram.com/tyler_hops_on_daily_remix/reels/" class="btn">To insta</a>
+        </div>
+
+    </div>
+</div>
+
+<script>
+const score = JSON.parse(localStorage.getItem("quizScore"));
+
+if (!score) {
+    window.location.href = "index.html";
+}
+
+score.x = Math.max(-100, Math.min(100, score.x));
+score.y = Math.max(-100, Math.min(100, score.y));
+
+let resultText = "";
+
+if (score.x > -30 && score.x < 30 && score.y > -30 && score.y < 20) {
+    resultText = "See You Again";
+} else if (score.x < -30 && score.y > 0 && score.y < 20) {
+    resultText = "Stressed Out";
+} else if (score.x < -30 && score.y > -30 && score.y < 0) {
+    resultText = "All I need";
+} else if (score.x < -70 && score.y < -30) {
+    resultText = "Coffee";
+} else if (score.x > -70 && score.x < -20 && score.y > -60 && score.y < -30) {
+    resultText = "The Less I Know the Better";
+} else if (score.x > -70 && score.x < -20 && score.y < -60) {
+    resultText = "Dracula";
+} else if (score.x > -20 && score.x < 20 && score.y < -60) {
+    resultText = "Stereo Madness";
+} else if (score.x > -20 && score.x < 30 && score.y > -30 && score.y < 20) {
+    resultText = "Let it Happen";
+} else if (score.x > 20 && score.y > -80 && score.y < -60) {
+    resultText = "Sexy Back";
+} else if (score.x > 20 && score.y > -100 && score.y < -80) {
+    resultText = "90210";
+} else if (score.x > 30 && score.x < 70 && score.y > -60 && score.y < -40) {
+    resultText = "Mo Bamba";
+} else if (score.x > 30 && score.x < 70 && score.y > -40 && score.y < -10) {
+    resultText = "Espresso";
+} else if (score.x > 70 && score.y > -60 && score.y < -20) {
+    resultText = "Iron Mouse Phonk";
+} else if (score.x > 70 && score.y > -20 && score.y < 20) {
+    resultText = "Melancholy Hill";
+} else if (score.x > 30 && score.x < 70 && score.y > -10 && score.y < 20) {
+    resultText = "Last Friday Night";
+} else if (score.x > 70 && score.y > 20 && score.y < 60) {
+    resultText = "Hey Ya!";
+} else if (score.x > 30 && score.x < 70 && score.y > 30 && score.y < 60) {
+    resultText = "Billie Jean";
+} else if (score.x > 60 && score.y > 60 && score.y < 80) {
+    resultText = "Beauty and the Beat";
+} else if (score.x > 40 && score.y > 80) {
+    resultText = "360";
+} else if (score.x > 0 && score.x < 30 && score.y > 20 && score.y < 60) {
+    resultText = "Boehemian Rhapsody";
+} else if (score.x > -20 && score.x < 50 && score.y > 60 && score.y < 80) {
+    resultText = "I got a Feelin";
+} else if (score.x > -20 && score.x < 50 && score.y > 80) {
+    resultText = "Lover Girl";
+} else if (score.x > -50 && score.x < 0 && score.y > 20 && score.y < 50) {
+    resultText = "Numb";
+} else if (score.x > -50 && score.x < -20 && score.y > 60) {
+    resultText = "Pixelated Kisses";
+} else if (score.x > -80 && score.x < -60 && score.y > 40) {
+    resultText = "Creep";
+} else if (score.x < -70 && score.y > 70) {
+    resultText = "Slow Dancing in the Dark";
+} else if (score.x < -70 && score.y > 40 && score.y < 70) {
+    resultText = "Believer";
+} else if (score.x < -50 && score.y > 20 && score.y < 40) {
+    resultText = "All I need";
+} else {
+    resultText = "Try Again...";
+}
+
+document.getElementById("result").innerText = resultText;
+
+document.getElementById("scoreText").innerText =
+    `Happiness: ${score.x} | Lyrical: ${score.y}`;
+
+document.getElementById("coords").innerText =
+    `(${score.x}, ${score.y})`;
+
+function restart() {
+    localStorage.removeItem("quizScore");
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

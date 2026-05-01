@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz</title>
+<link rel="stylesheet" href="css/home.css">
+</head>
+
+<body class="norm">
+
+<div class="navBar">
+    <h1>Tyler Hops On
+    <h3><a href="About.html" class="box-link>">About</a><h3>
+        <h3><a href="index.html" class="box-link>">Home</a><h3></h1>
+</div>
+
+            <h2 id="question">Question text</h2>
+            <div id="choices"></div>
+
+<script>
+// RANDOM FUNCTION
+function rand(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// SCORE
+let score = { x: 0, y: 0 };
+let currentQuestion = 0;
+
+// QUESTIONS
+const questions = [
+    {
+        text: "How are you feeling today?",
+        answers: [
+            { text: "Blissful", x: 30, y: 0 },
+            { text: "Goodie", x: 10, y: 0 },
+            { text: "Meh", x: -10, y: 0 },
+            { text: "Shit", x: -30, y: 0 }
+        ]
+    },
+    {
+        text: "What do you prefer in food?",
+        answers: [
+            { text: "Savory", x: -10, y: 0 },
+            { text: "Sweet", x: 10, y: 0 },
+            { text: "Idc", x: 0, y: 0 }
+        ]
+    },
+    {
+        text: "What do you focus on in music?",
+        answers: [
+            { text: "Lyrics", x: 0, y: 50 },
+            { text: "Both", x: 0, y: 0 },
+            { text: "Melody", x: 0, y: -50 }
+        ]
+    },
+    {
+        text: "Pick a color fish",
+        answers: [
+            { text: "Orange", x: 30, y: 20 },
+            { text: "Red", x: 15, y: -10 },
+            { text: "Green", x: -10, y: -10 }
+        ]
+    },
+    {
+        text: "What number do you vibe with here?", 
+        answers: [ 
+            { text: "1", x: rand(1, -1), y: rand(1, -1)}, 
+            { text: "2", x: rand(2, -2), y: rand(2, -2)}, 
+            { text: "3", x: rand(3, -3), y: rand(3, -3)}, 
+            { text: "4", x: rand(4, -4), y: rand(4, -4)}, 
+            { text: "5", x: rand(5, -5), y: rand(5, -5)}, 
+            { text: "6", x: rand(6, -6), y: rand(6, -6)}, 
+            { text: "7", x: rand(7, -7), y: rand(7, -7)}, 
+            { text: "8", x: rand(8, -8), y: rand(8, -8)}, 
+            { text: "9", x: rand(9, -9), y: rand(9, -9)} 
+        ] 
+    }, 
+    { 
+        text: "Last question, are you truly happy with yourself?", 
+        answers: [ 
+            { text: "No", x: -40, y: +20 }, 
+            { text: "Yes", x: +40, y: -20 }, 
+            { text: "Kinda yes", x: +10, y: -10 }, 
+            { text: "Kinda no", x: -10, y: +10 } 
+        ] 
+    } 
+];
+
+// LOAD QUESTION
+function loadQuestion() {
+    const q = questions[currentQuestion];
+    document.getElementById("question").innerText = q.text;
+
+    const choicesDiv = document.getElementById("choices");
+    choicesDiv.innerHTML = "";
+
+    q.answers.forEach(answer => {
+        const btn = document.createElement("button");
+        btn.innerText = answer.text;
+        btn.classList.add("btn");
+
+        btn.onclick = () => {
+            score.x += answer.x;
+            score.y += answer.y;
+            nextQuestion();
+        };
+
+        choicesDiv.appendChild(btn);
+    });
+}
+
+// NEXT
+function nextQuestion() {
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+        loadQuestion();
+    } else {
+        showResult();
+    }
+}
+
+// SAVE + GO TO RESULT PAGE
+function showResult() {
+    localStorage.setItem("quizScore", JSON.stringify(score));
+    window.location.href = "result.html";
+}
+
+// START
+loadQuestion();
+</script>
+
+</body>
+</html>
