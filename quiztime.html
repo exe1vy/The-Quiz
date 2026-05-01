@@ -11,13 +11,13 @@
 
 <div class="navBar">
     <h1>Tyler Hops On
-    <h3><a href="About.html" class="box-link>">About</a><h3>
-        <h3><a href="index.html" class="box-link>">Home</a><h3></h1>
+    <h3><a href="About.html" class="box-link">About</a><h3>
+        <h3><a href="index.html" class="box-link">Home</a><h3></h1>
 </div>
 
-            <h2 id="question">Question text</h2>
-            <div id="choices"></div>
-
+            <h4><h4 id="question">Question text</h4></h4>
+            <h4><div id="choices"></div></h4>
+</body>
 <script>
 // RANDOM FUNCTION
 function rand(min, max) {
@@ -56,7 +56,7 @@ const questions = [
         ]
     },
     {
-        text: "Pick a color fish",
+        text: "If you were a fish what color would you be?",
         answers: [
             { text: "Orange", x: 30, y: 20 },
             { text: "Red", x: 15, y: -10 },
@@ -78,14 +78,207 @@ const questions = [
         ] 
     }, 
     { 
-        text: "Last question, are you truly happy with yourself?", 
+        text: "Are you truly happy with yourself?", 
         answers: [ 
             { text: "No", x: -40, y: +20 }, 
             { text: "Yes", x: +40, y: -20 }, 
             { text: "Kinda yes", x: +10, y: -10 }, 
             { text: "Kinda no", x: -10, y: +10 } 
         ] 
-    } 
+    }, 
+    { 
+        text: "Favourite type of candy?", 
+        answers: [ 
+            { text: "Chocolate", x: +20, y: +20 }, 
+            { text: "Licorish", x: -20, y: +20 }, 
+            { text: "Hard Candy", x: +20, y: -20 }, 
+            { text: "Gummy/chewy candy", x: -20, y: -20 } 
+        ] 
+    }, 
+    { 
+        text: "How do you like your coffee?", 
+        answers: [ 
+            { text: "Dark", x: -12, y: -14 }, 
+            { text: "Sugar & cream", x: +13, y: +12 }, 
+            { text: "Cream", x: +11, y: -11 }, 
+            { text: "Sugar", x: -12, y: +12 } 
+        ] 
+    }, 
+    { 
+        text: "Hair colour?", 
+        answers: [ 
+            { text: "Black", x: +0, y: +0 }, 
+            { text: "Brown", x: +0, y: +0 }, 
+            { text: "Brunette", x: +0, y: +0 }, 
+            { text: "Blonde", x: +0, y: +0 }, 
+            { text: "Ginger/Red", x: +10, y: +0 },  
+            { text: "Dyed", x: +10, y: +0 } 
+        ] 
+    }, 
+    { 
+        text: "Eye colour?", 
+        answers: [ 
+            { text: "Black", x: +0, y: +0 }, 
+            { text: "Brown", x: +0, y: +0 }, 
+            { text: "Hazel/Amber", x: +0, y: +0 }, 
+            { text: "Blue", x: +0, y: +0 }, 
+            { text: "Coloured contacts", x: +10, y: +0}
+        ] 
+    }, 
+    { 
+        text: "Which fast food?", 
+        answers: [ 
+            { text: "Jack in the Box", x: +23, y: +25 }, 
+            { text: "McDonalds", x: +0, y: +0 }, 
+            { text: "Wendys", x: +10, y: -10 }, 
+            { text: "Taco Bell", x: -15, y: -8 }, 
+            { text: "Pop Eyes", x: +5, y: +13}
+        ] 
+    }, 
+    { 
+        text: "Do you have a pet?", 
+        answers: [ 
+            { text: "No", x: -14, y: -12 }, 
+            { text: "Bird", x: +10, y: -15 }, 
+            { text: "Dog", x: +15, y: -17 }, 
+            { text: "Cat", x: -15, y: +18 }, 
+            { text: "Other", x: +5, y: +5}
+        ] 
+    }, 
+    { 
+        text: "How do you like your eggs?", 
+        answers: [ 
+            { text: "Scrambled", x: +15, y: +10 }, 
+            { text: "Sunny side up", x: +5, y: -15 }, 
+            { text: "Boiled", x: -20, y: -17 }, 
+            { text: "Deviled eggs", x: -5, y: +0 }, 
+            { text: "Poached", x: -5, y: +5 }, 
+            { text: "I don't eat eggs", x: +5, y: +5}
+        ] 
+    }, 
+    { 
+        text: "What temperature do you like your water? (imagine you are just sitting down and relaxing)", 
+        answers: [ 
+            { text: "HOT", x: -20, y: -15 }, 
+            { text: "Warm hot", x: +10, y: +5 }, 
+            { text: "Warm", x: -5, y: +0 }, 
+            { text: "Room temp", x:+9, y: -4 }, 
+            { text: "Kinda cold", x: +5, y: -10 }, 
+            { text: "Cold", x: +8, y: -11}, 
+            { text: "COLDCOLD", x: -7, y: -12}
+        ] 
+    }, 
+    { 
+        text: "Where you from?", 
+        answers: [ 
+            { text: "North America", x: -14, y: -10 }, 
+            { text: "South America", x: +10, y: +5 }, 
+            { text: "Africa", x: +8, y: -12 }, 
+            { text: "Asia", x: +15, y: +12 }, 
+            { text: "Europe", x: +0, y: +0 }, 
+            { text: "Australia", x: -15, y: -12}, 
+            { text: "Antartica", x: -10, y: +0}
+        ] 
+    }, 
+    { 
+        text: "How big are your feet?", 
+        answers: [ 
+            { text: "1", x: rand(1, -1), y: rand(1, -1)}, 
+            { text: "2", x: rand(2, -2), y: rand(2, -2)}, 
+            { text: "3", x: rand(3, -3), y: rand(3, -3)}, 
+            { text: "4", x: rand(4, -4), y: rand(4, -4)}, 
+            { text: "5", x: rand(5, -5), y: rand(5, -5)}, 
+            { text: "6", x: rand(6, -6), y: rand(6, -6)}, 
+            { text: "7", x: rand(7, -7), y: rand(7, -7)}, 
+            { text: "8", x: rand(8, -8), y: rand(8, -8)}, 
+            { text: "9", x: rand(9, -9), y: rand(9, -9)}, 
+            { text: "10", x: rand(10, -10), y: rand(10, -10)}, 
+            { text: "11", x: rand(11, -11), y: rand(11, -11)}, 
+            { text: "12", x: rand(12, -12), y: rand(12, -12)}, 
+            { text: "13", x: rand(13, -13), y: rand(13, -13)}, 
+            { text: "more", x: rand(14, -14), y: rand(14, -14)}
+        ] 
+    }, 
+    { 
+        text: "Favourite first gen pokemon?", 
+        answers: [ 
+            { text: "Bulbasaur", x: -10, y: -6}, 
+            { text: "Charizard", x: +10, y: +0}, 
+            { text: "Squirtle", x: +0, y: +10}, 
+            { text: "Idk pokemon", x: -5, y: +0}
+        ] 
+    }, 
+    { 
+        text: "What genre of music?", 
+        answers: [ 
+            { text: "Pop", x: +10, y: -8}, 
+            { text: "Rock", x: +10, y: +10}, 
+            { text: "Rap", x: -5, y: +6}, 
+            { text: "Country", x: -15, y: +14}, 
+            { text: "Nightcore", x: +10, y: -12}
+        ] 
+    }, 
+    { 
+        text: "Yanny or laurel?", 
+        answers: [ 
+            { text: "Yanny", x: +0, y: +13}, 
+            { text: "Laurel", x: +0, y: -13}
+        ] 
+    }, 
+    { 
+        text: "Blue and black or white and gold?", 
+        answers: [ 
+            { text: "Blue and black", x: +10, y: -5}, 
+            { text: "White and gold", x: -10, y: +5}
+        ] 
+    }, 
+    { 
+        text: "Pick the right answer.", 
+        answers: [ 
+            { text: "Left", x: -10, y: -10}, 
+            { text: "Right", x: +10, y: +10}
+        ] 
+    }, 
+    { 
+        text: "Warm light or cold light?", 
+        answers: [ 
+            { text: "Warm", x: +10, y: -10}, 
+            { text: "Cold", x: -10, y: +10}, 
+            { text: "Idc", x: +0, y: +0}
+        ] 
+    }, 
+    { 
+        text: "Thick or thin blankets for sleeping?", 
+        answers: [ 
+            { text: "Thin", x: -10, y: -10}, 
+            { text: "Thick", x: +10, y: +10}, 
+            { text: "Idc", x: +0, y: +0}
+        ] 
+    }, 
+    { 
+        text: "Thick or thin pillows for sleeping?", 
+        answers: [ 
+            { text: "Thin", x: +5, y: +10}, 
+            { text: "Thick", x: -5, y: -10}, 
+            { text: "Idc", x: +0, y: +0}
+        ] 
+    }, 
+    { 
+        text: "Iphone or samsung or android?", 
+        answers: [ 
+            { text: "Iphone", x: +10, y: -10}, 
+            { text: "Samsung", x: -10, y: +0}, 
+            { text: "Android", x: +0, y: +5}
+        ] 
+    }, 
+    { 
+        text: "Final question, did you like my quiz?", 
+        answers: [ 
+            { text: "Yes", x: +10, y: rand(10, -10)}, 
+            { text: "No", x: -10, y: rand(10, -10)}, 
+            { text: "Eh", x: +0, y: rand(10, -10)}
+        ] 
+    }
 ];
 
 // LOAD QUESTION

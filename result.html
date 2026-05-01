@@ -10,8 +10,8 @@
 
 <div class="navBara">
     <h1>Tyler Hops On
-    <h3><a href="About.html" class="box-link>">About</a><h3>
-        <h3><a href="index.html" class="box-link>">Home</a><h3></h1>
+    <h3><a href="About.html" class="box-link">About</a><h3>
+        <h3><a href="index.html" class="box-link">Home</a><h3>
 </div>
 
 <div class="grid-wrapper">
@@ -20,6 +20,7 @@
         <div class="box box-2">
             <p>Your song is picked based on your personality/feelings mapped on a 2D axis:
              Sadness or happiness, and lyrical or melodic.</p>
+             <p id="scoreText"></p>
         </div>
 
         <div class="box box-1">
@@ -28,12 +29,11 @@
         </div>
 
         <div class="boxb box-3">
-            <p id="scoreText"></p>
+            <button class="btn" onclick="restart()">Restart</button>
         </div>
 
         <div class="boxb box-4">
-            <button class="btn" onclick="restart()">Restart</button>
-            <a href="https://www.instagram.com/tyler_hops_on_daily_remix/reels/" class="btn">To insta</a>
+            <a id="instaLink" href="#" class="btn">To insta</a>
         </div>
 
     </div>
@@ -50,68 +50,102 @@ score.x = Math.max(-100, Math.min(100, score.x));
 score.y = Math.max(-100, Math.min(100, score.y));
 
 let resultText = "";
+let linkText = "";
 
 if (score.x > -30 && score.x < 30 && score.y > -30 && score.y < 20) {
     resultText = "See You Again";
+    linkText = "https://www.instagram.com/reel/DR74yi0EvRx/";
 } else if (score.x < -30 && score.y > 0 && score.y < 20) {
     resultText = "Stressed Out";
+    linkText = "https://www.instagram.com/reel/DTU1F4-ESnI/";
 } else if (score.x < -30 && score.y > -30 && score.y < 0) {
     resultText = "All I need";
+    linkText = "https://www.instagram.com/reel/DSZSZVZkao6/";
 } else if (score.x < -70 && score.y < -30) {
     resultText = "Coffee";
+    linkText = "https://www.instagram.com/reel/DU7VWXaDlrY/";
 } else if (score.x > -70 && score.x < -20 && score.y > -60 && score.y < -30) {
     resultText = "The Less I Know the Better";
+    linkText = "https://www.instagram.com/reel/DRWeBGXjgT8/";
 } else if (score.x > -70 && score.x < -20 && score.y < -60) {
     resultText = "Dracula";
+    linkText = "https://www.instagram.com/reel/DRv8P2ljqBk/";
 } else if (score.x > -20 && score.x < 20 && score.y < -60) {
     resultText = "Stereo Madness";
+    linkText = "https://www.instagram.com/reel/DUxMpFOjvoN/";
 } else if (score.x > -20 && score.x < 30 && score.y > -30 && score.y < 20) {
     resultText = "Let it Happen";
+    linkText = "https://www.instagram.com/reel/DShNo86Ed6i/";
 } else if (score.x > 20 && score.y > -80 && score.y < -60) {
-    resultText = "Sexy Back";
+    resultText = "Sexy Back + Carti";
+    linkText = "https://www.instagram.com/reel/DQ3e7iLERYK/";
 } else if (score.x > 20 && score.y > -100 && score.y < -80) {
     resultText = "90210";
+    linkText = "https://www.instagram.com/reel/DQ0VDLQiXXn/";
 } else if (score.x > 30 && score.x < 70 && score.y > -60 && score.y < -40) {
     resultText = "Mo Bamba";
+    linkText = "https://www.instagram.com/reel/DRQf6Njj979/";
 } else if (score.x > 30 && score.x < 70 && score.y > -40 && score.y < -10) {
     resultText = "Espresso";
+    linkText = "https://www.instagram.com/reel/DSuOnlSEbin/";
 } else if (score.x > 70 && score.y > -60 && score.y < -20) {
     resultText = "Iron Mouse Phonk";
+    linkText = "https://www.instagram.com/reel/DS8upNVDzCc/";
 } else if (score.x > 70 && score.y > -20 && score.y < 20) {
     resultText = "Melancholy Hill";
+    linkText = "https://www.instagram.com/reel/DRv7V-vjtvY/";
 } else if (score.x > 30 && score.x < 70 && score.y > -10 && score.y < 20) {
     resultText = "Last Friday Night";
+    linkText = "https://www.instagram.com/reel/DRMIDKaDiAE/";
 } else if (score.x > 70 && score.y > 20 && score.y < 60) {
     resultText = "Hey Ya!";
+    linkText = "https://www.instagram.com/reel/DSuOpdHERon/";
 } else if (score.x > 30 && score.x < 70 && score.y > 30 && score.y < 60) {
     resultText = "Billie Jean";
+    linkText = "https://www.instagram.com/reel/DRZOKkHEUPt/";
 } else if (score.x > 60 && score.y > 60 && score.y < 80) {
     resultText = "Beauty and the Beat";
+    linkText = "https://www.instagram.com/reel/DRFygCKEvqQ/";
 } else if (score.x > 40 && score.y > 80) {
     resultText = "360";
+    linkText = "https://www.instagram.com/reel/DR2ygFAEkii/";
 } else if (score.x > 0 && score.x < 30 && score.y > 20 && score.y < 60) {
     resultText = "Boehemian Rhapsody";
+    linkText = "https://www.instagram.com/reel/DTU1DQcEf03/";
 } else if (score.x > -20 && score.x < 50 && score.y > 60 && score.y < 80) {
     resultText = "I got a Feelin";
+    linkText = "https://www.instagram.com/reel/DR-sIcCEnLu/";
 } else if (score.x > -20 && score.x < 50 && score.y > 80) {
     resultText = "Lover Girl";
+    linkText = "https://www.instagram.com/reel/DSzQb1ukbUx/";
 } else if (score.x > -50 && score.x < 0 && score.y > 20 && score.y < 50) {
     resultText = "Numb";
+    linkText = "https://www.instagram.com/reel/DQ-pi2hCepB/";
 } else if (score.x > -50 && score.x < -20 && score.y > 60) {
     resultText = "Pixelated Kisses";
+    linkText = "https://www.instagram.com/reel/DUjLWCuEj0A/";
 } else if (score.x > -80 && score.x < -60 && score.y > 40) {
     resultText = "Creep";
+    linkText = "https://www.instagram.com/reel/DQ3eZf6EeH9/";
 } else if (score.x < -70 && score.y > 70) {
     resultText = "Slow Dancing in the Dark";
+    linkText = "https://www.instagram.com/reel/DRJgJaHDt8F/";
 } else if (score.x < -70 && score.y > 40 && score.y < 70) {
     resultText = "Believer";
-} else if (score.x < -50 && score.y > 20 && score.y < 40) {
+    linkText = "https://www.instagram.com/reel/DS_QWLQD4K0/";
+} else if (score.x < -30 && score.y > -30 && score.y < 0) {
     resultText = "All I need";
+    linkText = "https://www.instagram.com/reel/DSZSZVZkao6/";
+} else if (score.x < -30 && score.y > 0 && score.y < 40) {
+    resultText = "Like Him";
+    linkText = "https://www.instagram.com/reel/DSc10EKEQXh/";
 } else {
     resultText = "Try Again...";
 }
 
 document.getElementById("result").innerText = resultText;
+
+document.getElementById("instaLink").href = linkText;
 
 document.getElementById("scoreText").innerText =
     `Happiness: ${score.x} | Lyrical: ${score.y}`;
